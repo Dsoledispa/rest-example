@@ -8,18 +8,23 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 public class TracksManagerImpl implements TracksManager {
-    private static TracksManager instance;
+    private static TracksManager instance; // singleton
     protected List<Track> tracks;
-    final static Logger logger = Logger.getLogger(TracksManagerImpl.class);
+    final static Logger logger = Logger.getLogger(TracksManagerImpl.class); // Log4j
 
+    // Constructor privado
     private TracksManagerImpl() {
         this.tracks = new LinkedList<>();
     }
+    // Constructor privado
 
+
+    // Patron singleton
     public static TracksManager getInstance() {
         if (instance==null) instance = new TracksManagerImpl();
         return instance;
     }
+    // Patron singleton
 
     public int size() {
         int ret = this.tracks.size();
@@ -28,6 +33,7 @@ public class TracksManagerImpl implements TracksManager {
         return ret;
     }
 
+    // Empieza el crud
     public Track addTrack(Track t) {
         logger.info("new Track " + t);
 

@@ -9,20 +9,27 @@ public class Track {
     String singer;
     static int lastId;
 
+    // Constructor vacio
     public Track() {
         this.setId(RandomUtils.getId());
     }
+    // Constructor
+    // Constructor
     public Track(String title, String singer) {
         this(null, title, singer);
     }
+    // Constructor
 
+    // Constructor
     public Track(String id, String title, String singer) {
-        this();
-        if (id != null) this.setId(id);
+        this(); // Llama al constructor sin parámetros (asigna un id aleatorio).
+        if (id != null) this.setId(id); // Si se proporciona un id, lo sobrescribe.
         this.setSinger(singer);
         this.setTitle(title);
     }
+    // Constructor
 
+    // getters y setters
     public String getId() {
         return this.id;
     }
@@ -47,6 +54,8 @@ public class Track {
     public void setSinger(String singer) {
         this.singer = singer;
     }
+
+    // getters y setters
 
     @Override
     public String toString() {

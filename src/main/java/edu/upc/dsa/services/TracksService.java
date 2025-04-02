@@ -20,7 +20,7 @@ import java.util.List;
 @Path("/tracks")
 public class TracksService {
 
-    private TracksManager tm;
+    private TracksManager tm; // tm es una instancia del TracksManager (implementado como Singleton).
 
     public TracksService() {
         this.tm = TracksManagerImpl.getInstance();
@@ -49,6 +49,8 @@ public class TracksService {
 
     }
 
+    //
+
     @GET
     @ApiOperation(value = "get a Track", notes = "asdasd")
     @ApiResponses(value = {
@@ -63,6 +65,8 @@ public class TracksService {
         else  return Response.status(201).entity(t).build();
     }
 
+    //
+
     @DELETE
     @ApiOperation(value = "delete a Track", notes = "asdasd")
     @ApiResponses(value = {
@@ -76,6 +80,8 @@ public class TracksService {
         else this.tm.deleteTrack(id);
         return Response.status(201).build();
     }
+
+    //
 
     @PUT
     @ApiOperation(value = "update a Track", notes = "asdasd")
@@ -94,6 +100,7 @@ public class TracksService {
     }
 
 
+    //
 
     @POST
     @ApiOperation(value = "create a new Track", notes = "asdasd")
